@@ -24,7 +24,7 @@ const codeBlocker = () => {
 
 
     // Non-blocking
-
+    // It's only the resolving of the value that happens as a microtask
     return Promise.resolve().then(v =>  {
         let i = 0;
         while(i < 1000000000) { i++; }
@@ -40,3 +40,11 @@ codeBlocker().then(log)
 
 
 log('🥪 Synchronous 2');
+
+// OUTPUT
+// 🥪 Synchronous 1
+//  Elapsed: 0ms
+// 🥪 Synchronous 2
+//  Elapsed: 1ms
+// 🐷 billion loops done
+//  Elapsed: 2069ms

@@ -2,11 +2,18 @@ import { getFruit } from './3-async-await';
 
 const fruits = ['peach', 'pineapple', 'strawberry'];
 
+// Will pause each step for promise to be resolved
 const fruitLoop = async () => {
   for (const f of fruits) {
     const emoji = await getFruit(f);
     log(emoji);
   }
+
+  // For running everything concurrently
+  // for await (const f of fruits) {
+  //   const emoji = getFruit(f);
+  //   log(emoji);
+  // }
 };
 
 const fruitInspection = async () => {

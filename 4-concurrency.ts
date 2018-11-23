@@ -1,4 +1,5 @@
 import { getFruit } from './3-async-await';
+import { log } from './log';
 
 const makeSmoothieFaster = async() => {
     const a = getFruit('pineapple');
@@ -19,8 +20,9 @@ const fruitRace = async() => {
     return winner;
 }
 
-// fruitRace().then(log)
-// fruitRace().then(log)
-// fruitRace().then(log)
-// fruitRace().then(log)
-// fruitRace().then(log)
+const tick = Date.now()
+fruitRace().then((v) => log(v, tick))
+fruitRace().then((v) => log(v, tick))
+fruitRace().then((v) => log(v, tick))
+fruitRace().then((v) => log(v, tick))
+fruitRace().then((v) => log(v, tick))
